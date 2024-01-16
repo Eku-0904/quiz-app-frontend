@@ -14,7 +14,7 @@ const Login = () => {
     }
 
     try {
-      const res = await axios.post('http://localhost:999/login', {
+      const res = await axios.post('https://quiz-app-back-end-wuso.onrender.com/login', {
         email: email,
         password: password,
       })

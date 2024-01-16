@@ -17,7 +17,7 @@ const Signup = () => {
   const [required, setRequired] = useState('');
 
   const createUser = (username, password) => {
-    return axios.post('http://localhost:999/signup', {
+    return axios.post('https://quiz-app-back-end-wuso.onrender.com/signup', {
       username: username,
       password: password,
       email: email,

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import ThumbDownIcon from "@mui/icons-material/ThumbDown";
@@ -7,12 +7,19 @@ const UserInfo = ({ factData }) => {
   //UwUwUwUwUwUwuUwuUwuwUWuUWuUUwuUwUwUuwUwUwUwYwYwuwUwUwuwuwuuwuwuWUUWUWUWUWUUWUWUWUWUWUUWUWUWUWU
   const initialLikes = (factData && factData.Like) || [];
   const initialDislikes = (factData && factData.Dislike) || [];
+  const [currentUserId, setCurrentUserId] = useState();
 
   const [Likes, setLikes] = useState(initialLikes);
   const [Dislikes, setDislikes] = useState(initialDislikes);
   const [error, setError] = useState("");
 
-  const loggedUserID = localStorage.getItem("userID");
+  useEffect(() => {
+    const getUserId = () => {
+      const userId = localStorage.getItem("userID");
+      setCurrentUserId(userId);
+    };
+    getUserId();
+  }, []);
 
   const handleLike = async () => {
     try {
@@ -22,7 +29,7 @@ const UserInfo = ({ factData }) => {
       }
 
       const res = await axios.post(
-        `http://localhost:999/addLikes/${factData._id}/${loggedUserID}`
+        `https://quiz-app-back-end-wuso.onrender.com/addLikes/${factData._id}/${currentUserId}`
       );
       console.log("Like response:", res.data);
       //asdfghgfdsasdfghgfdswaqawsdfghfdsaыбөаөбыйsdfcvUQUQUWUWUWUWUWUWUWUWUWUWUWUWUWUWUWUWUWUWUWUUWUWUWUWUUWUWUWUWU
@@ -42,7 +49,7 @@ const UserInfo = ({ factData }) => {
       }
 
       const res = await axios.post(
-        `http://localhost:999/disLikes/${factData._id}/${loggedUserID}`
+        `https://quiz-app-back-end-wuso.onrender.com/disLikes/${factData._id}/${currentUserId}`
       );
       console.log("Dislike response:", res.data);
       //UWUWUWUWUWUWUWUWUWUWUWUWUWUWUWUWUWUWUWUWUWUWUWUWUWUUWUWUWUWUWUWUUWUWUWUWUWUWUUWUWUWUWUWUUWUWUWUWU
@@ -64,8 +71,12 @@ const UserInfo = ({ factData }) => {
       </div>
       <div className="userInfoItem">{factData && factData.text}</div>
       <div className="userInfoItem">{factData && factData.userID}</div>
-      <div className="userInfoItem">Likes: <span style={{ fontSize: "20px" }}>{Likes.length}</span></div>
-      <div className="userInfoItem">Dislikes: <span style={{ fontSize: "20px" }}>{Dislikes.length}</span></div>
+      <div className="userInfoItem">
+        Likes: <span style={{ fontSize: "20px" }}>{Likes.length}</span>
+      </div>
+      <div className="userInfoItem">
+        Dislikes: <span style={{ fontSize: "20px" }}>{Dislikes.length}</span>
+      </div>
       <ThumbUpIcon onClick={handleLike} />
       <ThumbDownIcon onClick={handleDislike} />
       {error && <p>Error: {error}</p>}

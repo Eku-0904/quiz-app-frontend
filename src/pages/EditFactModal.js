@@ -9,8 +9,8 @@ import Button from "@mui/material/Button";
 const EditFactModal = ({ open, onClose, onEdit, factData }) => {
   console.log(factData);
   const [updatedFact, setUpdatedFact] = useState({
-    title:factData.title,
-    text: factData.text,
+    title:factData?.title,
+    text: factData?.text,
   });
 
   const handleInputChange = (e) => {
