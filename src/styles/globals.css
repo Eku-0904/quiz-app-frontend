@@ -1,0 +1,146 @@
+.container {
+  background: linear-gradient(to right, #3498db, #2ecc71);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login {
+  width: 482px;
+  min-height: 418px;
+  flex-shrink: 0;
+  background-color: #f5f0f0;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.login:hover {
+  transform: scale(1.05);
+}
+
+.email,
+.pass {
+  width: 360px;
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  border: 2px solid #3498db;
+  background: #ecf0f1;
+  padding-left: 15px;
+  margin-bottom: 15px;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.email:hover,
+.pass:hover {
+  border-color: #2ecc71;
+}
+
+.inputs {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.loginButton {
+  width: 200px;
+  height: 55px;
+  background-color: #2ecc71;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.loginButton:hover {
+  background-color: #27ae60;
+}
+
+/* .backButton {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+} */
+/* Your existing styles... */
+
+.backButton {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #27ae60;
+  border-radius: 50%;
+  background-color: #2ecc71;
+  /* border: none; */
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.backButton:hover {
+  background-color: #27ae60;
+}
+
+.userInfoContainer {
+  /* min-width: 20px; */
+  width: 88vw;
+  min-height: auto;
+  border: 1px solid #ddd;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.editButton{
+  margin-bottom: 120px;
+}
+.postButton{
+  margin-bottom: 40px;
+}
+
+ body {
+  font-family: 'Roboto', sans-serif;
+  color: #ddd;
+  display: flex;
+  justify-content: center;
+  animation: oscillateBackground 5s infinite alternate;
+  background-color: #ff6ec7; 
+  height: 100vh; 
+   margin: 0; 
+} 
+
+@keyframes oscillateBackground { 
+  0% { 
+     background-color: #ff6ec7;  
+  } 
+   50% { 
+     background-color: #3498db;  
+   } 
+   100% { 
+     background-color: #2ecc71;  
+   }
+} 
+
+
+
+
+
+
+
+
+
+
+
